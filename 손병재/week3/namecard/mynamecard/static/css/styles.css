@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800&display=swap');
+
+* {
+    font-family: 'Montserrat';
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-box {
+    width: 610px;
+    height: 200px;
+    padding: 30px;
+    margin: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid #ebebeb;
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.job-box {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.job-text {
+    font-size: 32px;
+    margin-bottom: 5px;
+    font-weight: 100;
+}
+
+.skillset-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+.personal-info {
+    box-sizing: border-box;
+    width: 47%;
+    height: 50%;
+    float: left;
+    list-style: none;
+    text-align: right;
+    padding-right: 15px;
+    
+}
+
+.contact-info {
+    box-sizing: border-box;
+    width: 53%;
+    height: 50%;
+    float: right;
+    list-style: none;
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 20px;
+    border-left: solid black 2px;
+}
+
+.float-wrap {
+    overflow: hidden;
+}
+
+.personal-info li:nth-child(2) {
+    font-size: 20px;
+}
