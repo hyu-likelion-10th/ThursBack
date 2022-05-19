@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설문조사</title>
+</head>
+<body>
+    <h1>BJ's Survey</h1>
+    <form method="post" action="{% url 'save_survey' %}">
+        {% csrf_token %}
+        <p>{{survey.question}}</p>
+        <label><input type="radio" name="ans" value="{{survey.ans1}}" checked="checked">{{survey.ans1}}</label><br/>
+        <label><input type="radio" name="ans" value="{{survey.ans2}}">{{survey.ans2}}</label><br/>
+        <label><input type="radio" name="ans" value="{{survey.ans3}}">{{survey.ans3}}</label><br/>
+        <label><input type="radio" name="ans" value="{{survey.ans4}}">{{survey.ans4}}</label><br/>
+        <p>
+            <input type="hidden" name="survey_idx" value="{{survey.survey_idx}}">
+            <input type="submit" value="투표하기">
+            <a href="{% url 'result' %}?survey_idx={{survey.survey_idx}}"><input type="button" value="결과보기"></a>
+        </p>
+      </form>
+</body>
+</html>
