@@ -25,4 +25,6 @@ urlpatterns = [
 
     #장고 폼 쓰기
     path('formcreate/',views.formcreate,name='formcreate'),
+    #모델폼 쓰기
+    path('modelformcreate/',views.formcreate, name='formcreate')
 ]
