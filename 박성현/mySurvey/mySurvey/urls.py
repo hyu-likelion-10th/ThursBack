@@ -24,4 +24,7 @@ urlpatterns = [
     re_path(r'^$', views.main),
     re_path(r'^save_survey$',views.save_survey),
     re_path(r'^show_result', views.show_result),
+    path('new', views.new),
+    path('create', views.create),
+    path('account/', include('account.urls'))
 ]
