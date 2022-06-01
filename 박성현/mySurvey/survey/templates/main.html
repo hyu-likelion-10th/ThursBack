@@ -24,10 +24,11 @@
 {% endif %}
 
 <body>
+{% for e in surveys %}    
 <form method="post" action="save_survey">
     {% csrf_token %}
     <div>
-        {% for e in surveys %}
+        
         <p>문항번호{{e.survey_idx}}. {{ e.question }}</p>
         <input type="radio" name="num" value="1">{{e.ans1}}<br>
         <input type="radio" name="num" value="2">{{e.ans2}}<br>
@@ -37,7 +38,7 @@
         <input type="hidden" name="survey_idx" value="{{e.survey_idx}}">
         <input type="submit" value="투표">
         <input type="button" value="결과 확인" onclick="show_result()">
-        {% endfor %}
+        
     </div>
 </form>
 <script>
@@ -45,6 +46,8 @@
         location.href= " show_result?survey_idx={{e.survey_idx}} ";
     }
 </script>
+{% endfor %}
+
 </body>
 
 
