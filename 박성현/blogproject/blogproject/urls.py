@@ -13,9 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path
 from blogapp import views
+from accounts import views as account_views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +36,14 @@ urlpatterns = [
     #django modelform 을 이용해 블로그 객체 만들기
     path('modelformcreate/', views.modelformcreate, name='modelformcreate'),
 
-    path('detail/<int:blog_id>', views.detail, name='detail')
-]
+    path('detail/<int:blog_id>', views.detail, name='detail'), 
+    
+    path('create_comment/<int:blog_id>', views.create_comment, name='detail'),
+
+    path('login/', account_views.login, name="login"), 
+    
+    path('logout/', account_views.logout, name="logout"), 
+] 
+
+# media 파일에 접근할 수 있는 url도 추가해 주어야 함
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
